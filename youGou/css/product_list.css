@@ -31,3 +31,18 @@ body {
 .item {
     display: none;
 }
+
+.tab_con ul li {
+    display: flex;
+    list-style: none;
+}
+
+.tab_con ul a {
+    flex: 1;
+    background-color: pink;
+}
+
+.tab_con ul p {
+    flex: 2;
+    background-color: purple;
+}
