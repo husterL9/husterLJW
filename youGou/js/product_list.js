@@ -24,12 +24,20 @@ window.addEventListener('load', function() {
 
         },
         success: function(result) {
-            var html = template('tpl', { result: result.message.goods })
-            console.log(result.message.goods)
-            var str = '<li><a class="aa"><img src="" alt="" ></a></li>'
-            list_box.innerHTML = str
-                // var a = document.querySelector('.aa')
-                // a.children[0].src = result.message.goods[0].goods_name
+            for (var i = 0; i < result.message.goods.length / 2; i++) {
+                var str = ''
+                var str = '<li><a href="" alt=""><img src="" alt="" id="aa' + i + '"></a><p class="bb' + i + '"><a href="" alt=""></a></p><span class="cc' + i + '"></span></li>'
+                list_box.innerHTML += str
+                var img = document.getElementById('aa' + i + '')
+                var p = document.querySelector('.bb' + i + '')
+                var span = document.querySelector('.cc' + i + '')
+                console.log(img)
+                var index = 2 * i + 1
+                console.log(index)
+                img.src = result.message.goods[index].goods_small_logo
+                p.children[0].innerHTML = result.message.goods[index].goods_name
+                span.innerHTML = '￥' + result.message.goods[index].goods_price
+            }
         }
     })
 })
